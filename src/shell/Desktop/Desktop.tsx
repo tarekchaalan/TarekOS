@@ -44,7 +44,7 @@ export function Desktop() {
   const handleAltTabSelect = useCallback(
     (id: string) => {
       // Clicking a card directly commits that window
-      const selectedId = commitAltTab()
+      commitAltTab()
       if (id) {
         useStore.getState().focusWindow(id)
       }

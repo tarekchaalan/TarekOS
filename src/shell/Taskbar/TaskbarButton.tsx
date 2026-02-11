@@ -128,7 +128,7 @@ export function TaskbarButton({
   icon,
   label,
   windows,
-  isPinned,
+  isPinned: _isPinned,
   onClickApp,
 }: TaskbarButtonProps) {
   const hasWindows = windows.length > 0
