@@ -1,0 +1,10 @@
+Objectives:
+• Build something “small” (ended up building an internal ERP)
+• Quick side project (became production tool used daily)
+• Refactor later (refactored immediately)
+• Keep it simple (added monitoring, logs, RBAC, and CI/CD)
+• Read the documentation before asking ChatGPT
+• Write unit tests (lol)
+
+If you opened this file,
+you probably inspect elements for fun.

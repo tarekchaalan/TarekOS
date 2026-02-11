@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  /* OS Design Tokens — Windows 7 Aero */
+  --color-os-bg: #1e1e2e;
+  --color-os-bg-secondary: #f0f0f0;
+  --color-os-bg-tertiary: #e0e0e0;
+  --color-os-surface: #ffffff;
+  --color-os-surface-hover: #e8e8e8;
+  --color-os-border: #b0b0b0;
+  --color-os-text: #1a1a1a;
+  --color-os-text-secondary: #444444;
+  --color-os-text-muted: #888888;
+  --color-os-accent: #4580c4;
+  --color-os-accent-hover: #5a9ae0;
+  --color-os-accent-muted: #d0e0f0;
+  --color-os-error: #ef4444;
+  --color-os-success: #22c55e;
+  --color-os-warning: #eab308;
+
+  /* Window chrome */
+  --color-window-bg: #f0f0f0;
+  --color-window-titlebar: rgba(50,100,180,0.65);
+  --color-window-titlebar-inactive: rgba(185,195,210,0.65);
+  --color-window-border: rgba(80,140,220,0.5);
+  --color-window-close-hover: #e5564d;
+  --color-window-btn-hover: rgba(255,255,255,0.25);
+
+  /* Taskbar */
+  --color-taskbar-bg: rgba(20,40,80,0.75);
+  --color-taskbar-hover: rgba(255,255,255,0.15);
+  --color-taskbar-active: rgba(255,255,255,0.22);
+
+  /* Start Menu */
+  --color-startmenu-bg: rgba(255,255,255,0.97);
+
+  /* Terminal */
+  --color-terminal-bg: #0c0c0c;
+  --color-terminal-text: #cccccc;
+  --color-terminal-prompt: #16c60c;
+  --color-terminal-error: #f38ba8;
+  --color-terminal-accent: #89b4fa;
+
+  /* Font families */
+  --font-sans: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Cascadia Code', monospace;
+
+  /* Spacing */
+  --spacing-taskbar-height: 40px;
+  --spacing-titlebar-height: 30px;
+}
+
+/* Global resets for OS feel */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  background: var(--color-os-bg);
+  color: var(--color-os-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom Windows 7 cursors */
+html, body {
+  cursor: url('/assets/cursors/aero_arrow.cur'), auto;
+}
+
+a, button, [role="button"] {
+  cursor: url('/assets/cursors/aero_link.cur'), pointer;
+}
+
+/* Allow text selection inside terminal and notepad */
+.selectable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Aero Glass utility classes */
+.aero-glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(50, 100, 180, 0.45);
+}
+
+.aero-glass-dark {
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  background: rgba(20, 40, 80, 0.75);
+}
+
+.aero-glow-focused {
+  box-shadow:
+    0 0 8px rgba(80, 140, 220, 0.6),
+    0 0 20px rgba(80, 140, 220, 0.2);
+}
+
+/* Scrollbar styling — Win7 style */
+::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-left: 1px solid #d0d0d0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c8c8c8 0%, #a8a8a8 100%);
+  border: 1px solid #999;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b8b8b8 0%, #989898 100%);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}

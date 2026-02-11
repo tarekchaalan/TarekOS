@@ -1,0 +1,175 @@
+{
+  "version": "1.0.0",
+  "apps": [
+    {
+      "id": "app.explorer",
+      "name": "File Explorer",
+      "icon": "icon.explorer",
+      "singleton": false,
+      "defaultWindow": { "w": 900, "h": 600, "minW": 520, "minH": 360 },
+      "supports": {
+        "openTypes": ["dir", "file", "link", "shortcut"],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/explorer", "component": "ExplorerApp" }
+    },
+    {
+      "id": "app.terminal",
+      "name": "Terminal",
+      "icon": "icon.terminal",
+      "singleton": false,
+      "defaultWindow": { "w": 860, "h": 520, "minW": 520, "minH": 300 },
+      "supports": {
+        "openTypes": [],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/terminal", "component": "TerminalApp" }
+    },
+    {
+      "id": "app.notepad",
+      "name": "Notepad",
+      "icon": "icon.notepad",
+      "singleton": false,
+      "defaultWindow": { "w": 780, "h": 520, "minW": 420, "minH": 280 },
+      "supports": {
+        "openTypes": ["file"],
+        "mime": ["text/plain", "text/markdown", "application/json"]
+      },
+      "entry": { "bundle": "apps/notepad", "component": "NotepadApp" }
+    },
+    {
+      "id": "app.resumeViewer",
+      "name": "Resume Viewer",
+      "icon": "icon.pdf",
+      "singleton": true,
+      "defaultWindow": { "w": 920, "h": 640, "minW": 640, "minH": 420 },
+      "supports": {
+        "openTypes": ["file"],
+        "mime": ["application/pdf"]
+      },
+      "entry": { "bundle": "apps/resume", "component": "ResumeViewerApp" }
+    },
+    {
+      "id": "app.photos",
+      "name": "Paint",
+      "icon": "icon.photos",
+      "singleton": false,
+      "defaultWindow": { "w": 920, "h": 640, "minW": 520, "minH": 400 },
+      "supports": {
+        "openTypes": [],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/photos", "component": "PhotosApp" }
+    },
+    {
+      "id": "app.browser",
+      "name": "Internet Explorer",
+      "icon": "icon.browser",
+      "singleton": false,
+      "defaultWindow": { "w": 1000, "h": 700, "minW": 680, "minH": 420 },
+      "supports": {
+        "openTypes": ["link"],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/browser", "component": "BrowserApp" }
+    },
+    {
+      "id": "app.settings",
+      "name": "Control Panel",
+      "icon": "icon.settings",
+      "singleton": true,
+      "defaultWindow": { "w": 920, "h": 620, "minW": 720, "minH": 420 },
+      "supports": {
+        "openTypes": [],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/settings", "component": "SettingsApp" }
+    },
+    {
+      "id": "app.minesweeper",
+      "name": "Minesweeper",
+      "icon": "icon.minesweeper",
+      "singleton": true,
+      "defaultWindow": { "w": 320, "h": 420, "minW": 280, "minH": 380 },
+      "supports": {
+        "openTypes": [],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/minesweeper", "component": "MinesweeperApp" }
+    },
+    {
+      "id": "app.snake",
+      "name": "Snake",
+      "icon": "icon.snake",
+      "singleton": true,
+      "defaultWindow": { "w": 440, "h": 520, "minW": 400, "minH": 480 },
+      "supports": {
+        "openTypes": [],
+        "mime": []
+      },
+      "entry": { "bundle": "apps/snake", "component": "SnakeApp" }
+    }
+  ],
+
+  "fileAssociations": [
+    {
+      "mime": "application/pdf",
+      "defaultApp": "app.resumeViewer",
+      "openWith": ["app.resumeViewer"]
+    },
+    {
+      "mime": "text/plain",
+      "defaultApp": "app.notepad",
+      "openWith": ["app.notepad"]
+    },
+    {
+      "mime": "text/markdown",
+      "defaultApp": "app.notepad",
+      "openWith": ["app.notepad"]
+    },
+    {
+      "mime": "application/json",
+      "defaultApp": "app.notepad",
+      "openWith": ["app.notepad"]
+    },
+    {
+      "mime": "image/png",
+      "defaultApp": "app.photos",
+      "openWith": ["app.photos"]
+    },
+    {
+      "mime": "image/jpeg",
+      "defaultApp": "app.photos",
+      "openWith": ["app.photos"]
+    },
+    {
+      "mime": "image/webp",
+      "defaultApp": "app.photos",
+      "openWith": ["app.photos"]
+    }
+  ],
+
+  "startMenu": {
+    "pinned": [
+      "app.explorer",
+      "app.browser",
+      "app.terminal",
+      "app.notepad",
+      "app.photos",
+      "app.settings",
+      "app.resumeViewer",
+      "app.minesweeper",
+      "app.snake"
+    ],
+    "recommended": [
+      { "kind": "node", "nodeId": "file_resume_pdf" },
+      { "kind": "node", "nodeId": "proj_portfolio" },
+      { "kind": "node", "nodeId": "proj_chess_vs_gpt" }
+    ]
+  },
+
+  "taskbar": {
+    "pinned": ["app.explorer", "app.browser", "app.terminal", "app.notepad", "app.photos"],
+    "systemTray": ["clock", "network", "volume"]
+  }
+}

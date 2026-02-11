@@ -1,0 +1,532 @@
+{
+  "version": "1.0.0",
+  "rootId": "node_root",
+  "nodes": [
+    {
+      "id": "node_root",
+      "type": "dir",
+      "name": "/",
+      "children": [
+        "node_desktop",
+        "node_users",
+        "node_system",
+        "dir_recycle_bin"
+      ]
+    },
+
+    {
+      "id": "node_desktop",
+      "type": "dir",
+      "name": "Desktop",
+      "pathHint": "/Desktop",
+      "children": [
+        "sc_computer",
+        "sc_recycle",
+        "sc_terminal",
+        "sc_projects",
+        "sc_resume",
+        "sc_browser",
+        "file_about"
+      ]
+    },
+
+    {
+      "id": "sc_computer",
+      "type": "shortcut",
+      "name": "Computer",
+      "target": { "kind": "app", "appId": "app.explorer" },
+      "icon": "icon.mycomputer",
+      "desktop": { "x": 40, "y": 40 }
+    },
+
+    {
+      "id": "sc_recycle",
+      "type": "shortcut",
+      "name": "Recycle Bin",
+      "target": { "kind": "node", "nodeId": "dir_recycle_bin" },
+      "icon": "icon.recycleFull",
+      "desktop": { "x": 40, "y": 540 }
+    },
+
+    {
+      "id": "sc_terminal",
+      "type": "shortcut",
+      "name": "Terminal",
+      "target": { "kind": "app", "appId": "app.terminal" },
+      "icon": "icon.terminal",
+      "desktop": { "x": 40, "y": 240 }
+    },
+
+    {
+      "id": "sc_projects",
+      "type": "shortcut",
+      "name": "Projects",
+      "target": { "kind": "node", "nodeId": "dir_projects" },
+      "icon": "icon.folder",
+      "desktop": { "x": 40, "y": 340 }
+    },
+
+    {
+      "id": "sc_resume",
+      "type": "shortcut",
+      "name": "Resume",
+      "target": { "kind": "node", "nodeId": "file_resume_pdf" },
+      "icon": "icon.pdf",
+      "desktop": { "x": 40, "y": 540 }
+    },
+
+    {
+      "id": "sc_browser",
+      "type": "shortcut",
+      "name": "Internet Explorer",
+      "target": { "kind": "app", "appId": "app.browser" },
+      "icon": "icon.browser",
+      "desktop": { "x": 40, "y": 140 }
+    },
+
+    {
+      "id": "file_about",
+      "type": "file",
+      "name": "About.txt",
+      "mime": "text/plain",
+      "contentRef": "content/about.txt",
+      "openWith": ["app.notepad"],
+      "desktop": { "x": 40, "y": 440 }
+    },
+
+    {
+      "id": "node_users",
+      "type": "dir",
+      "name": "Users",
+      "pathHint": "/Users",
+      "children": ["node_user_tarek"]
+    },
+
+    {
+      "id": "node_user_tarek",
+      "type": "dir",
+      "name": "Tarek",
+      "pathHint": "/Users/Tarek",
+      "children": [
+        "dir_projects",
+        "dir_documents",
+        "dir_contact",
+        "dir_media",
+        "dir_games"
+      ]
+    },
+
+    {
+      "id": "dir_projects",
+      "type": "dir",
+      "name": "Projects",
+      "pathHint": "/Users/Tarek/Projects",
+      "children": [
+        "proj_portfolio",
+        "proj_barbershop",
+        "proj_fitfuel",
+        "proj_kuwait_driving_test",
+        "proj_chess_elo_shield",
+        "proj_chess_vs_gpt"
+      ]
+    },
+
+    {
+      "id": "proj_portfolio",
+      "type": "dir",
+      "name": "Portfolio",
+      "pathHint": "/Users/Tarek/Projects/Portfolio",
+      "meta": {
+        "tags": ["react", "typescript", "portfolio", "desktop"],
+        "featured": true,
+        "slug": "portfolio"
+      },
+      "children": ["portfolio_readme", "portfolio_links"]
+    },
+
+    {
+      "id": "proj_barbershop",
+      "type": "dir",
+      "name": "Barbershop",
+      "pathHint": "/Users/Tarek/Projects/Barbershop",
+      "meta": {
+        "tags": ["web", "fullstack", "booking", "react"],
+        "featured": true,
+        "slug": "barbershop"
+      },
+      "children": ["barbershop_readme", "barbershop_links"]
+    },
+
+    {
+      "id": "barbershop_readme",
+      "type": "file",
+      "name": "README.md",
+      "mime": "text/markdown",
+      "contentRef": "content/projects/barbershop.readme.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "barbershop_links",
+      "type": "link",
+      "name": "Links.link",
+      "url": "https://github.com/tarekchaalan/Barbershop-Website",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "proj_fitfuel",
+      "type": "dir",
+      "name": "FitFuel",
+      "pathHint": "/Users/Tarek/Projects/FitFuel",
+      "meta": {
+        "tags": ["react", "fitness", "nutrition", "fullstack"],
+        "featured": true,
+        "slug": "fitfuel"
+      },
+      "children": ["fitfuel_readme", "fitfuel_links"]
+    },
+
+    {
+      "id": "fitfuel_readme",
+      "type": "file",
+      "name": "README.md",
+      "mime": "text/markdown",
+      "contentRef": "content/projects/fitfuel.readme.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "fitfuel_links",
+      "type": "link",
+      "name": "Links.link",
+      "url": "https://github.com/tarekchaalan/fitfuel",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "proj_kuwait_driving_test",
+      "type": "dir",
+      "name": "KuwaitDrivingTest",
+      "pathHint": "/Users/Tarek/Projects/KuwaitDrivingTest",
+      "meta": {
+        "tags": ["python", "automation", "testing", "selenium"],
+        "featured": false,
+        "slug": "kuwait-driving-test"
+      },
+      "children": ["kuwait_driving_test_readme", "kuwait_driving_test_links"]
+    },
+
+    {
+      "id": "kuwait_driving_test_readme",
+      "type": "file",
+      "name": "README.md",
+      "mime": "text/markdown",
+      "contentRef": "content/projects/kuwait-driving-test.readme.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "kuwait_driving_test_links",
+      "type": "link",
+      "name": "Links.link",
+      "url": "https://github.com/tarekchaalan/KuwaitDrivingTest",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "proj_chess_elo_shield",
+      "type": "dir",
+      "name": "ChessEloShield",
+      "pathHint": "/Users/Tarek/Projects/ChessEloShield",
+      "meta": {
+        "tags": ["chrome-extension", "chess", "javascript", "api"],
+        "featured": true,
+        "slug": "chess-elo-shield"
+      },
+      "children": ["chess_elo_shield_readme", "chess_elo_shield_links"]
+    },
+
+    {
+      "id": "chess_elo_shield_readme",
+      "type": "file",
+      "name": "README.md",
+      "mime": "text/markdown",
+      "contentRef": "content/projects/chess-elo-shield.readme.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "chess_elo_shield_links",
+      "type": "link",
+      "name": "Links.link",
+      "url": "https://github.com/tarekchaalan/ChessEloShield",
+      "meta": {
+        "urls": {
+          "github": "https://github.com/tarekchaalan/ChessEloShield",
+          "chromeStore": "https://chromewebstore.google.com/detail/chesseloshield/ekjahhkooocdfnjjdfmlglmlbdomkpkn",
+          "firefoxStore": "https://addons.mozilla.org/en-US/firefox/addon/chesseloshield/"
+        }
+      },
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "proj_chess_vs_gpt",
+      "type": "dir",
+      "name": "ChessVsGPT",
+      "pathHint": "/Users/Tarek/Projects/ChessVsGPT",
+      "meta": {
+        "tags": ["react", "chess", "ai", "openai", "fullstack"],
+        "featured": true,
+        "slug": "chess-vs-gpt"
+      },
+      "children": ["chess_vs_gpt_readme", "chess_vs_gpt_links"]
+    },
+
+    {
+      "id": "chess_vs_gpt_readme",
+      "type": "file",
+      "name": "README.md",
+      "mime": "text/markdown",
+      "contentRef": "content/projects/chess-vs-gpt.readme.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "chess_vs_gpt_links",
+      "type": "link",
+      "name": "Links.link",
+      "url": "https://github.com/tarekchaalan/CHESSvsGPT",
+      "meta": {
+        "urls": {
+          "github": "https://github.com/tarekchaalan/CHESSvsGPT",
+          "demo": "https://chess-vs-gpt.vercel.app/"
+        }
+      },
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "dir_documents",
+      "type": "dir",
+      "name": "Documents",
+      "pathHint": "/Users/Tarek/Documents",
+      "children": ["file_resume_pdf", "file_experience_md", "file_skills_md"]
+    },
+
+    {
+      "id": "file_resume_pdf",
+      "type": "file",
+      "name": "Resume.pdf",
+      "mime": "application/pdf",
+      "contentRef": "assets/Resume.pdf",
+      "openWith": ["app.resumeViewer"]
+    },
+
+    {
+      "id": "file_experience_md",
+      "type": "file",
+      "name": "Experience.md",
+      "mime": "text/markdown",
+      "contentRef": "content/experience.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "file_skills_md",
+      "type": "file",
+      "name": "Skills.md",
+      "mime": "text/markdown",
+      "contentRef": "content/skills.md",
+      "openWith": ["app.notepad"]
+    },
+
+    {
+      "id": "dir_contact",
+      "type": "dir",
+      "name": "Contact",
+      "pathHint": "/Users/Tarek/Contact",
+      "children": ["link_email", "link_github", "link_linkedin"]
+    },
+
+    {
+      "id": "link_email",
+      "type": "link",
+      "name": "Email.link",
+      "url": "mailto:tarekJobs@outlook.com",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "link_github",
+      "type": "link",
+      "name": "GitHub.link",
+      "url": "https://github.com/tarekchaalan/",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "link_linkedin",
+      "type": "link",
+      "name": "LinkedIn.link",
+      "url": "https://linkedin.com/in/tarekchaalan",
+      "openWith": ["app.browser"]
+    },
+
+    {
+      "id": "dir_media",
+      "type": "dir",
+      "name": "Media",
+      "pathHint": "/Users/Tarek/Media",
+      "children": []
+    },
+
+    {
+      "id": "node_system",
+      "type": "dir",
+      "name": "System",
+      "pathHint": "/System",
+      "children": ["dir_apps", "dir_settings"]
+    },
+
+    {
+      "id": "dir_apps",
+      "type": "dir",
+      "name": "Apps",
+      "pathHint": "/System/Apps",
+      "children": [
+        "app_explorer_node",
+        "app_terminal_node",
+        "app_notepad_node",
+        "app_resume_viewer_node",
+        "app_photos_node",
+        "app_browser_node",
+        "app_settings_node",
+        "app_minesweeper_node",
+        "app_snake_node"
+      ]
+    },
+
+    {
+      "id": "app_explorer_node",
+      "type": "shortcut",
+      "name": "File Explorer",
+      "target": { "kind": "app", "appId": "app.explorer" },
+      "icon": "icon.explorer"
+    },
+
+    {
+      "id": "app_terminal_node",
+      "type": "shortcut",
+      "name": "Terminal",
+      "target": { "kind": "app", "appId": "app.terminal" },
+      "icon": "icon.terminal"
+    },
+
+    {
+      "id": "app_notepad_node",
+      "type": "shortcut",
+      "name": "Notepad",
+      "target": { "kind": "app", "appId": "app.notepad" },
+      "icon": "icon.notepad"
+    },
+
+    {
+      "id": "app_resume_viewer_node",
+      "type": "shortcut",
+      "name": "Resume Viewer",
+      "target": { "kind": "app", "appId": "app.resumeViewer" },
+      "icon": "icon.pdf"
+    },
+
+    {
+      "id": "app_photos_node",
+      "type": "shortcut",
+      "name": "Paint",
+      "target": { "kind": "app", "appId": "app.photos" },
+      "icon": "icon.photos"
+    },
+
+    {
+      "id": "app_browser_node",
+      "type": "shortcut",
+      "name": "Browser",
+      "target": { "kind": "app", "appId": "app.browser" },
+      "icon": "icon.browser"
+    },
+
+    {
+      "id": "app_settings_node",
+      "type": "shortcut",
+      "name": "Settings",
+      "target": { "kind": "app", "appId": "app.settings" },
+      "icon": "icon.settings"
+    },
+
+    {
+      "id": "dir_settings",
+      "type": "dir",
+      "name": "Settings",
+      "pathHint": "/System/Settings",
+      "children": []
+    },
+
+    {
+      "id": "dir_games",
+      "type": "dir",
+      "name": "Games",
+      "pathHint": "/Users/Tarek/Games",
+      "children": ["sc_minesweeper", "sc_snake"]
+    },
+
+    {
+      "id": "sc_minesweeper",
+      "type": "shortcut",
+      "name": "Minesweeper",
+      "target": { "kind": "app", "appId": "app.minesweeper" },
+      "icon": "icon.minesweeper"
+    },
+
+    {
+      "id": "sc_snake",
+      "type": "shortcut",
+      "name": "Snake",
+      "target": { "kind": "app", "appId": "app.snake" },
+      "icon": "icon.snake"
+    },
+
+    {
+      "id": "app_minesweeper_node",
+      "type": "shortcut",
+      "name": "Minesweeper",
+      "target": { "kind": "app", "appId": "app.minesweeper" },
+      "icon": "icon.minesweeper"
+    },
+
+    {
+      "id": "app_snake_node",
+      "type": "shortcut",
+      "name": "Snake",
+      "target": { "kind": "app", "appId": "app.snake" },
+      "icon": "icon.snake"
+    },
+
+    {
+      "id": "dir_recycle_bin",
+      "type": "dir",
+      "name": "Recycle Bin",
+      "pathHint": "/RecycleBin",
+      "children": ["file_deleted_plans"]
+    },
+
+    {
+      "id": "file_deleted_plans",
+      "type": "file",
+      "name": "deleted_plans.txt",
+      "mime": "text/plain",
+      "contentRef": "content/recycle-bin/deleted-plans.txt",
+      "openWith": ["app.notepad"]
+    }
+  ]
+}

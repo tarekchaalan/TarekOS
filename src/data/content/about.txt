@@ -1,0 +1,36 @@
+TAREK CHAALAN
+Software Engineer | Systems Builder
+
+I build systems that remove friction.
+
+My work lives at the intersection of engineering, operations, and applied intelligence.
+I design software that replaces spreadsheets, centralizes chaos, reduces manual work,
+and gives teams real-time visibility into what matters.
+
+From AWS-backed analytics platforms to internal purchasing automation systems,
+I focus on one principle:
+
+If a process repeats, it should be engineered.
+
+I’ve worked across startups, enterprise environments, and freelance engagements —
+building dashboards, CMS platforms, ecommerce systems, workflow controllers,
+object detection models, browser extensions, and cloud-native infrastructure.
+
+Technically, I’m full-stack.
+Practically, I’m systems-first.
+Strategically, I think in leverage.
+
+Current focus:
+• Workflow automation & operational control systems
+• Applied AI in real-world business environments
+• High-performance front-end architecture
+• Cloud-native scalable deployments
+• Turning complex processes into intuitive interfaces
+
+Languages:
+Arabic (Native)
+English (Native/Bilingual)
+French (Professional)
+
+Nationality:
+USA

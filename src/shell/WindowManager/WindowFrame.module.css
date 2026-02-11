@@ -1,0 +1,201 @@
+/* Window frame chrome — Windows 7 Aero Glass */
+
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.15s ease;
+}
+
+.window.focused {
+  border-color: rgba(80, 140, 220, 0.5);
+  box-shadow:
+    0 0 12px rgba(80, 140, 220, 0.4),
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.window.maximized {
+  border-radius: 0;
+  border: none;
+}
+
+/* Title bar — Aero glass */
+.titlebar {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  min-height: 30px;
+  padding: 0 4px 0 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(50, 100, 180, 0.75) 0%,
+    rgba(30, 70, 150, 0.65) 50%,
+    rgba(40, 85, 165, 0.7) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  cursor: default;
+  gap: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.titlebar.inactive {
+  background: linear-gradient(
+    180deg,
+    rgba(185, 195, 210, 0.7) 0%,
+    rgba(165, 175, 195, 0.6) 50%,
+    rgba(175, 185, 200, 0.65) 100%
+  );
+}
+
+.titlebarIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.titlebarTitle {
+  flex: 1;
+  font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 30px;
+}
+
+.titlebar.inactive .titlebarTitle {
+  color: rgba(50, 50, 60, 0.7);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.titlebarButtons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+
+.titlebarBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.titlebar.inactive .titlebarBtn {
+  color: rgba(50, 50, 60, 0.5);
+  text-shadow: none;
+}
+
+.titlebarBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.titlebar.inactive .titlebarBtn:hover {
+  color: rgba(50, 50, 60, 0.8);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.titlebarBtn.close:hover {
+  background: linear-gradient(180deg, #e5564d 0%, #c4302b 100%);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Content area — light like Win7 */
+.content {
+  flex: 1;
+  overflow: hidden;
+  background: #f0f0f0;
+  position: relative;
+}
+
+/* Resize handles — invisible hit areas around the window */
+.resizeHandle {
+  position: absolute;
+  z-index: 10;
+}
+
+.resizeN {
+  top: -4px;
+  left: 8px;
+  right: 8px;
+  height: 8px;
+  cursor: n-resize;
+}
+
+.resizeS {
+  bottom: -4px;
+  left: 8px;
+  right: 8px;
+  height: 8px;
+  cursor: s-resize;
+}
+
+.resizeE {
+  right: -4px;
+  top: 8px;
+  bottom: 8px;
+  width: 8px;
+  cursor: e-resize;
+}
+
+.resizeW {
+  left: -4px;
+  top: 8px;
+  bottom: 8px;
+  width: 8px;
+  cursor: w-resize;
+}
+
+.resizeNE {
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  cursor: ne-resize;
+}
+
+.resizeNW {
+  top: -4px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  cursor: nw-resize;
+}
+
+.resizeSE {
+  bottom: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  cursor: se-resize;
+}
+
+.resizeSW {
+  bottom: -4px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  cursor: sw-resize;
+}
