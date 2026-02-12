@@ -16,7 +16,6 @@ export default function BrowserApp({
   const [loading, setLoading] = useState(!!initialUrl)
 
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const fallbackTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const openExternal = useCallback(
     (target: string) => {
@@ -46,7 +45,6 @@ export default function BrowserApp({
     } catch {
       return
     }
-    if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current)
     setUrl(normalized)
     setInputUrl(normalized)
     setLoadError(false)
@@ -63,7 +61,6 @@ export default function BrowserApp({
   )
 
   const handleRefresh = useCallback(() => {
-    if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current)
     setIframeKey((k) => k + 1)
     setLoadError(false)
     setLoading(true)
@@ -84,12 +81,8 @@ export default function BrowserApp({
    * Chrome: CSP-blocked frames show `chrome-error://chromewebdata/` which is
    *   cross-origin, so `contentDocument` throws — indistinguishable from a
    *   page that loaded successfully. No client-side JS API can tell them apart.
-   *
-   * Strategy for Chrome: after the load event, schedule a short fallback timer.
-   * When the timer fires, try one final `contentDocument` probe. If it's still
-   * inaccessible (cross-origin) and the URL is external, show the error state
-   * and auto-open. The only false-positive is an external site that genuinely
-   * works inside an iframe, which is rare for portfolio links.
+   *   We only show the error when we can definitively detect blocking; otherwise
+   *   the site stays in the iframe. Users can manually click "Open in tab" if needed.
    */
   const handleIframeLoad = useCallback(() => {
     const iframe = iframeRef.current
@@ -109,7 +102,6 @@ export default function BrowserApp({
           (docUrl === 'about:blank' || docUrl === '' || docUrl === 'about:srcdoc')
         ) {
           // Definitively blocked (Firefox / Safari)
-          if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current)
           setLoadError(true)
           setLoading(false)
           openExternal(url)
@@ -120,24 +112,12 @@ export default function BrowserApp({
         return
       }
     } catch {
-      // SecurityError → cross-origin.
-      // Could be a real page OR Chrome's CSP error page.
+      // SecurityError → cross-origin. Could be a real page or Chrome's CSP error.
+      // We cannot distinguish them, so assume it loaded — no false positives.
     }
 
-    // External URL loaded cross-origin — we can't tell if it worked or not.
-    // Schedule a fallback: auto-open in a new tab after a short delay.
-    // For the rare external site that actually renders in an iframe, the user
-    // gets an extra tab (minor inconvenience) but links always work.
-    if (isExternal(url)) {
-      setLoading(false)
-      if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current)
-      fallbackTimerRef.current = setTimeout(() => {
-        setLoadError(true)
-        openExternal(url)
-      }, 1500)
-    } else {
-      setLoading(false)
-    }
+    // Cross-origin external page: assume it loaded successfully.
+    setLoading(false)
   }, [url, openExternal, isExternal])
 
   // Attach the load handler via ref (React's onLoad is less reliable for iframes)
@@ -147,13 +127,6 @@ export default function BrowserApp({
     iframe.addEventListener('load', handleIframeLoad)
     return () => iframe.removeEventListener('load', handleIframeLoad)
   }, [handleIframeLoad, iframeKey])
-
-  // Clean up the fallback timer on unmount or URL change
-  useEffect(() => {
-    return () => {
-      if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current)
-    }
-  }, [url])
 
   return (
     <div className="flex h-full flex-col bg-os-bg">
