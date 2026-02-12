@@ -215,8 +215,8 @@ export default function BrowserApp({
           <div className="flex h-full flex-col items-center justify-center gap-4 text-os-text-muted">
             <Globe size={48} strokeWidth={1} />
             <div className="text-center">
-              <p className="text-sm font-medium text-os-text">
-                This site can&apos;t be displayed here
+              <p className="text-sm font-medium text-os-text-muted">
+                This site can't be displayed here
               </p>
               <p className="mt-1 text-xs text-os-text-muted">
                 The site blocked iframe embedding — it was opened in a new tab.
@@ -248,5 +248,5 @@ export default function BrowserApp({
         )}
       </div>
     </div>
-  )
+  );
 }
